@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Booklist App</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alfa+Slab+One&family=Caveat:wght@700&family=Open+Sans:wght@400;700&family=Prata&family=Ramabhadra&family=Righteous&family=Shrikhand&family=Sorts+Mill+Goudy&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!--contains the entirety of the app and used for color layering effect-->
+    <div class="app-bg">
+        <div class="app">
+            <h2>My Books</h2>
+
+            <!--Modal that is connected to the form-->
+            <div id="new-book" data-bs-toggle="modal" data-bs-target="#form">
+                <span>Add New Book</span>
+                <i class="fas fa-plus"></i>
+            </div>
+
+
+            <h4>Read / Want to read</h4>
+
+            <!--Modal settings, will toggle when Add a Book form is clicked-->
+            <form class="modal fade" id="form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Add New Book</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <!--What appears inside of the modal by categories/sections. Text form section-->
+                        <div class="modal-body">
+                            <p class="mp">Book Title</p>
+                            <input class="form-control" type="text" name="" id="textInput">
+                            <div id="err"></div>
+                            <br>
+
+                            <!--Text form section for Author-->
+                            <p class="mp">Author</p>
+                            <input class="form-control" type="text" name="" id="authorInput">
+                            <br>
+
+                            <!--Date form section for date added-->
+                            <p class="mp">Date Added</p>
+                            <input class="form-control" type="date" name="" id="dateInput">
+                            <br>
+
+                            <!--Textarea form for notes/longer responses-->
+                            <p class="mp">Notes</p>
+                            <textarea class="form-control" name="" id="textArea" cols="10" rows="4"></textarea>
+                        </div>
+
+                        <!--Footer containing adjusted button colors to better match theme-->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" id="add" class="btn btn-warning"> Add </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <!--ID to contain all generated cards-->
+            <div id="saved">
+
+                <!--ID for all individual cards with CSS styling, uses bootstrap card class-->
+                <div id="individual" class="card">
+                    <span>The Glass Castle</span>
+                    <p>Jeanette Walls</p>
+                    <span>12/20/2022 </span>
+                    <p>Completed. I really loved the immersive storytelling. The story is furthered by the fact
+                        that it is a deeply personal and true story. A eye-opening perspective of rural Arizona in the
+                        1960-70's. </p>
+                    <span class="options">
+                        <i onClick="editEntry(this)" data-bs-toggle="modal" data-bs-target="#form"
+                            class="fas fa-edit"></i>
+                        <i onClick="deleteBook(this)" class="fas fa-trash"></i>
+                    </span>
+                </div>
+            </div>
+
+
+            <script src="app.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+                integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+                integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+                crossorigin="anonymous"></script>
+</body>
+
+</html>
